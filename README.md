@@ -39,9 +39,11 @@ The following tables list the supported identifiers.
 
 ### ROS Identifiers
 
-| Identifier | ROS Message Type     |
-| ---------- | -------------------- |
-| `pose_msg` | `geometry_msgs/Pose` |
+| Identifier | ROS Message Type           |
+| ---------- | -------------------------- |
+| `pose_msg` | `geometry_msgs/Pose`       |
+| `quat_msg` | `geometry_msgs/Quaternion` |
+| `tf_msg`   | `geometry_msgs/Transform`  |
 
 ### Spatial Maths for Python Identifiers
 
