@@ -33,13 +33,15 @@ def se2_to_tf_msg(se2):
 
 
 def se2_to_quat_msg(se2):
-    # TODO update this once Quaternion.vec_xyzs is fixed
+    # TODO update this once Quaternion.vec_xyzs is fixed:
+    #   https://github.com/petercorke/spatialmath-python/pull/30
     uq = UnitQuaternion.Rz(se2.theta())
     return Quaternion(*np.concatenate([uq.vec3, [uq.s]]))
 
 
 def se3_to_quat_msg(se3):
     # TODO update this once Quaternion.vec_xyzs is fixed
+    #   https://github.com/petercorke/spatialmath-python/pull/30
     uq = UnitQuaternion(se3)
     return Quaternion(*np.concatenate([uq.vec3, [uq.s]]))
 
