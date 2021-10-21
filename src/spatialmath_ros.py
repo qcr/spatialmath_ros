@@ -59,14 +59,13 @@ def se3_to_tf_msg(se3):
 def tf_msg_to_se2(tf_msg):
     return SE2(tf_msg.translation.x, tf_msg.translation.y) * SO2(
         UnitQuaternion(tf_msg.rotation.w, [
-            tf_msg.rotation.x, tf_msg.orientation.y, tf_msg.orientation.z
+            tf_msg.rotation.x, tf_msg.rotation.y, tf_msg.rotation.z
         ]).rpy()[1])
 
 
 def tf_msg_to_se3(tf_msg):
-    return SE3(
-        tf_msg.translation.x, tf_msg.translation.y,
-        tf_msg.translation.z) * SO3(
-            UnitQuaternion(tf_msg.rotation.w, [
-                tf_msg.rotation.x, tf_msg.orientation.y, tf_msg.orientation.z
-            ]))
+    return SE3(tf_msg.translation.x, tf_msg.translation.y,
+               tf_msg.translation.z) * SO3(
+                   UnitQuaternion(tf_msg.rotation.w, [
+                       tf_msg.rotation.x, tf_msg.rotation.y, tf_msg.rotation.z
+                   ]))
