@@ -14,11 +14,10 @@ def pose_msg_to_se2(pose_msg):
 
 def pose_msg_to_se3(pose_msg):
     return SE3(pose_msg.position.x, pose_msg.position.y,
-               pose_msg.position.z) * SO3(
-                   UnitQuaternion(pose_msg.orientation.w, [
-                       pose_msg.orientation.x, pose_msg.orientation.y,
-                       pose_msg.orientation.z
-                   ]))
+               pose_msg.position.z) * UnitQuaternion(pose_msg.orientation.w, [
+                   pose_msg.orientation.x, pose_msg.orientation.y,
+                   pose_msg.orientation.z
+               ]).SO3()
 
 
 def se2_to_pose_msg(se2):
@@ -65,7 +64,6 @@ def tf_msg_to_se2(tf_msg):
 
 def tf_msg_to_se3(tf_msg):
     return SE3(tf_msg.translation.x, tf_msg.translation.y,
-               tf_msg.translation.z) * SO3(
-                   UnitQuaternion(tf_msg.rotation.w, [
-                       tf_msg.rotation.x, tf_msg.rotation.y, tf_msg.rotation.z
-                   ]))
+               tf_msg.translation.z) * UnitQuaternion(tf_msg.rotation.w, [
+                   tf_msg.rotation.x, tf_msg.rotation.y, tf_msg.rotation.z
+               ]).SO3()
