@@ -1,11 +1,11 @@
 import numpy as np
-from spatialmath import SE2, SE3, SO2, SO3, UnitQuaternion
+from spatialmath import SE2, SE3, UnitQuaternion
 
 from geometry_msgs.msg import Point, Pose, Quaternion, Transform, Vector3
 
 
 def pose_msg_to_se2(pose_msg):
-    return SE2(pose_msg.position.x, pose_msg.position.y) * SO2(
+    return SE2(pose_msg.position.x, pose_msg.position.y) * SE2(
         UnitQuaternion(pose_msg.orientation.w, [
             pose_msg.orientation.x, pose_msg.orientation.y,
             pose_msg.orientation.z
@@ -64,7 +64,7 @@ def se3_to_tf_msg(se3):
 
 
 def tf_msg_to_se2(tf_msg):
-    return SE2(tf_msg.translation.x, tf_msg.translation.y) * SO2(
+    return SE2(tf_msg.translation.x, tf_msg.translation.y) * SE2(
         UnitQuaternion(tf_msg.rotation.w, [
             tf_msg.rotation.x, tf_msg.rotation.y, tf_msg.rotation.z
         ]).rpy()[1])
