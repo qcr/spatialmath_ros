@@ -50,8 +50,7 @@ def se3_to_quat_msg(se3):
 
 
 def se3_to_pose_msg(se3):
-    return Pose(position=Point(*se3.t),
-                orientation=Quaternion(se3_to_quat_msg))
+    return Pose(position=Point(*se3.t), orientation=se3_to_quat_msg(se3))
 
 
 def se3_to_se2(se3):
