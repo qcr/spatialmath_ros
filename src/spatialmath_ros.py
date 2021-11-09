@@ -1,7 +1,8 @@
 import numpy as np
-from spatialmath import SE2, SE3, UnitQuaternion
+from spatialmath import SE2, SE3, Twist2, Twist3, UnitQuaternion
 
-from geometry_msgs.msg import Point, Pose, Quaternion, Transform, Vector3
+from geometry_msgs.msg import (Point, Pose, Quaternion, Transform, Twist,
+                               Vector3)
 
 
 def pose_msg_to_se2(pose_msg):
@@ -74,3 +75,23 @@ def tf_msg_to_se3(tf_msg):
                tf_msg.translation.z) * UnitQuaternion(tf_msg.rotation.w, [
                    tf_msg.rotation.x, tf_msg.rotation.y, tf_msg.rotation.z
                ]).SE3()
+
+
+def twist_msg_to_twist2(twist_msg):
+    return Twist2(
+        [twist_msg.linear.x, twist_msg.linear.y, twist_msg.angular.z])
+
+
+def twist_msg_to_twist3(twist_msg):
+    return Twist3([
+        twist_msg.linear.x, twist_msg.linear.y, twist_msg.linear.z,
+        twist_msg.angular.x, twist_msg.angular.y, twist_msg.angular.z
+    ])
+
+
+def twist2_to_twist_msg(twist2):
+    return Twist(linear=Vector3(*twist2.v, 0.0), angular=Vector3(z=twist2.w))
+
+
+def twist3_to_twist_msg(twist3):
+    return Twist(linear=Vector3(*twist3.v), angular=Vector3(*twist3.w))
