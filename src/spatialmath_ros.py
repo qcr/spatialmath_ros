@@ -21,16 +21,23 @@ def pose_msg_to_se3(pose_msg):
                ]).SE3()
 
 
+def quat_to_quat_msg(quat):
+    # TODO update this once Quaternion.vec_xyzs is fixed
+    #   https://github.com/petercorke/spatialmath-python/pull/30
+    return Quaternion(*np.concatenate([quat.vec3, [quat.s]]))
+
+
+def quat_msg_to_quat(quat_msg):
+    return UnitQuaternion(quat_msg.w, [quat_msg.x, quat_msg.y, quat_msg.z])
+
+
 def se2_to_pose_msg(se2):
     return Pose(position=Point(*np.concatenate([se2.t, [0.0]])),
                 orientation=se2_to_quat_msg(se2))
 
 
 def se2_to_quat_msg(se2):
-    # TODO update this once Quaternion.vec_xyzs is fixed:
-    #   https://github.com/petercorke/spatialmath-python/pull/30
-    uq = UnitQuaternion.Rz(se2.theta())
-    return Quaternion(*np.concatenate([uq.vec3, [uq.s]]))
+    return quat_to_quat_msg(UnitQuaternion.Rz(se2.theta()))
 
 
 def se2_to_se3(se2):
@@ -48,8 +55,6 @@ def se3_to_pose_msg(se3):
 
 
 def se3_to_quat_msg(se3):
-    # TODO update this once Quaternion.vec_xyzs is fixed
-    #   https://github.com/petercorke/spatialmath-python/pull/30
     uq = UnitQuaternion(se3)
     return Quaternion(*np.concatenate([uq.vec3, [uq.s]]))
 
