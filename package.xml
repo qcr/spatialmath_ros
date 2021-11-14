@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>spatialmath-ros</name>
+  <version>0.0.1</version>
+  <description>The spatialmath-ros package</description>
+
+  <maintainer email="b.talbot@qut.edu.au">Ben Talbot</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+
+  <export>
+  </export>
+</package>
