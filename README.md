@@ -48,9 +48,10 @@ The following tables list the supported identifiers.
 
 ### Spatial Maths for Python Identifiers
 
-| Identifier | Spatial Maths package Type |
-| ---------- | -------------------------- |
-| `se3`      | `spatialmath.SE3`          |
-| `se2`      | `spatialmath.SE2`          |
-| `twist2`   | `spatialmath.Twist2`       |
-| `twist3`   | `spatialmath.Twist3`       |
+| Identifier | Spatial Maths package Type   |
+| ---------- | ---------------------------- |
+| `quat`     | `spatialmath.UnitQuaternion` |
+| `se3`      | `spatialmath.SE3`            |
+| `se2`      | `spatialmath.SE2`            |
+| `twist2`   | `spatialmath.Twist2`         |
+| `twist3`   | `spatialmath.Twist3`         |
