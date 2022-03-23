@@ -32,7 +32,7 @@ Where:
 For example, the following creates an SE3 object corresponding to a ROS pose message:
 
 ```python
-my_se3 = pose_msg_to_se3(my_pose_msg)
+my_SE3 = pose_msg_to_SE3(my_pose_msg)
 ```
 
 The following tables list the supported identifiers.
@@ -51,7 +51,7 @@ The following tables list the supported identifiers.
 | Identifier | Spatial Maths package Type   |
 | ---------- | ---------------------------- |
 | `quat`     | `spatialmath.UnitQuaternion` |
-| `se3`      | `spatialmath.SE3`            |
-| `se2`      | `spatialmath.SE2`            |
+| `SE3`      | `spatialmath.SE3`            |
+| `SE2`      | `spatialmath.SE2`            |
 | `twist2`   | `spatialmath.Twist2`         |
 | `twist3`   | `spatialmath.Twist3`         |
