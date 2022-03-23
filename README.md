@@ -39,12 +39,11 @@ The following tables list the supported identifiers.
 
 ### ROS Identifiers
 
-| Identifier  | ROS Message Type           |
-| ----------- | -------------------------- |
-| `pose_msg`  | `geometry_msgs/Pose`       |
-| `quat_msg`  | `geometry_msgs/Quaternion` |
-| `tf_msg`    | `geometry_msgs/Transform`  |
-| `twist_msg` | `geometry_msgs/Twist`      |
+| Identifier | ROS Message Type           |
+| ---------- | -------------------------- |
+| `pose_msg` | `geometry_msgs/Pose`       |
+| `quat_msg` | `geometry_msgs/Quaternion` |
+| `tf_msg`   | `geometry_msgs/Transform`  |
 
 ### Spatial Maths for Python Identifiers
 
@@ -53,5 +52,3 @@ The following tables list the supported identifiers.
 | `quat`     | `spatialmath.UnitQuaternion` |
 | `SE3`      | `spatialmath.SE3`            |
 | `SE2`      | `spatialmath.SE2`            |
-| `twist2`   | `spatialmath.Twist2`         |
-| `twist3`   | `spatialmath.Twist3`         |
